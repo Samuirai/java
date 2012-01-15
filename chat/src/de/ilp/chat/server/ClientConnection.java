@@ -39,10 +39,7 @@ public class ClientConnection implements Runnable {
 			try {
 				ChatMessage message = (ChatMessage) this.clientInputStream.readObject();
 				
-				if (ChatConstants.COMMAND_CHECK.equals(message.getCommand())) {
-					check();
-				}
-				else if (ChatConstants.COMMAND_ENTER.equals(message.getCommand())) {
+				if (ChatConstants.COMMAND_ENTER.equals(message.getCommand())) {
 					enter(message);
 				}
 				else if (ChatConstants.COMMAND_MESSAGE.equals(message.getCommand())) {
@@ -68,38 +65,25 @@ public class ClientConnection implements Runnable {
 		return userLeft;
 	}
 
-	private void check() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private void enter(ChatMessage message) {
-		// TODO Auto-generated method stub
 		name = message.getMessage();
 		this.id = this.server.registerNewChatter(name);
 	}
 
 	private void message(String message) {
-		// TODO Auto-generated method stub
 		this.server.sendMessageToClients(id + " " + name + ": " + message);
 	}
 
 	private void leave() {
-		// TODO Auto-generated method stub
 		System.out.println(name+" left");
 		this.server.sendMessageToClients(id+" "+name+", we will miss you :'(");
 	}
 
-	/**
-	 * Send the message to the client
-	 * @param message
-	 */
 	public void sendMessage(String message) {
 		try {
 			this.clientOutputStream.writeObject(message);
 			this.clientOutputStream.flush();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 public class ChatMessage implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7875846953918018798L;
 	
 	private String command;

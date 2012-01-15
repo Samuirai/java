@@ -105,11 +105,10 @@ public class ChatClient implements ActionListener {
 	public void connect() {
 		try {
 			server = new Socket("localhost", 4444);
-			
 			System.out.println("connected to server");
-			
 			serverOutput = new ObjectOutputStream(server.getOutputStream());
 			name = "Hugo";
+			
 			enter(name);
 			
 			ObjectInputStream serverInput = new ObjectInputStream(server.getInputStream());
@@ -117,7 +116,6 @@ public class ChatClient implements ActionListener {
 			Object input = null;
 			while ((input = serverInput.readObject()) != null) {
 				messagesText.setText(messagesText.getText()+input+"\n");
-				// scrollPane scroll down
 				scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum()+1);
 				System.out.println("got message from server");
 			}
