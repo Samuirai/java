@@ -12,7 +12,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -49,7 +48,7 @@ public class ChatClient implements ActionListener {
 	private void openWindow() {
 		JFrame frame = new JFrame("Chat");
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
+		
 		frame.addWindowListener(new WindowEventHandler());
 		frame.setSize( 400, 250 );
 		

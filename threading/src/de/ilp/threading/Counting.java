@@ -13,7 +13,7 @@ public class Counting implements Runnable{
 	public void run() {
 		while(true) {
 			counter++;
-			for(int i=0; i<1000000; ++i) {
+			for(int i=0; i<100000000; ++i) {
 				
 			}
 			System.out.println(threadName+": "+this.counter);
