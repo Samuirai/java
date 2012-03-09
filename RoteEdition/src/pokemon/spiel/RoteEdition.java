@@ -51,6 +51,8 @@ public class RoteEdition {
 		teamAsh.getPokemon(1).levelUp();
 		System.out.println("Ash:\n--------------\n" + teamAsh);
 		
+		System.out.println(glumanda.equals(bisasam));
+		
 	}
 
 }

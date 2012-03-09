@@ -26,7 +26,7 @@ public class Client {
 			String message = (String) clientInputStream.readObject();		
 			
 			System.out.println("Message from Client: "+message);
-			
+
 			server.close();
 			
 		} catch (UnknownHostException e) {
